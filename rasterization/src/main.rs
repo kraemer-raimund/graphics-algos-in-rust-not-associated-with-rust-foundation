@@ -8,8 +8,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let window = create_window("Rendered Image", Default::default())?;
     window.set_image("image", image)?;
+    let _ = window.wait_until_destroyed();
 
-    std::io::stdin().read_line(&mut String::new()).unwrap();
-    
     Ok(())
 }
