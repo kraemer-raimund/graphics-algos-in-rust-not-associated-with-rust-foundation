@@ -44,8 +44,8 @@ impl RenderBuffer {
         self.height
     }
 
-    pub fn pixels(&self) -> &[Pixel] {
-        self.pixels.as_ref()
+    pub fn pixels_mut(&mut self) -> &mut Vec<Pixel> {
+        &mut self.pixels
     }
 }
 
@@ -68,4 +68,10 @@ pub struct Pixel {
     g: u8,
     b: u8,
     a: u8,
+}
+
+impl Pixel {
+    pub fn new(r: u8, g: u8, b: u8, a: u8) -> Self {
+        Self { r, g, b, a }
+    }
 }
