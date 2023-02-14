@@ -1,7 +1,7 @@
 #[derive(Debug, Clone)]
 pub struct RenderBuffer {
-    pub width: u16,
-    pub height: u16,
+    width: u16,
+    height: u16,
     pixels: Vec<Pixel>,
 }
 
@@ -34,6 +34,18 @@ impl RenderBuffer {
             pixel_data[i * 4 + 3] = self.pixels[i].a;
         }
         pixel_data
+    }
+
+    pub fn width(&self) -> u16 {
+        self.width
+    }
+
+    pub fn height(&self) -> u16 {
+        self.height
+    }
+
+    pub fn pixels(&self) -> &[Pixel] {
+        self.pixels.as_ref()
     }
 }
 

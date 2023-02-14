@@ -10,13 +10,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let pixel_data = &white_image.raw_pixel_data();
 
     let image = ImageView::new(
-        ImageInfo::rgba8(white_image.width.into(), white_image.height.into()),
+        ImageInfo::rgba8(white_image.width().into(), white_image.height().into()),
         pixel_data,
     );
 
     let window = create_window(
         "Rendered Image",
-        WindowOptions::new().set_size([white_image.width.into(), white_image.height.into()]),
+        WindowOptions::new().set_size([white_image.width().into(), white_image.height().into()]),
     )?;
     window.set_image("image", image)?;
     let _ = window.wait_until_destroyed();
